@@ -1,19 +1,9 @@
-import { GET_NAME } from "./actionTypes";
+import { combineReducers } from "redux";
 
-let defaultState = {
-    name: "zhang",
-    age: 23
-}
+import headerReducer from "../header/store/reducer";
+import footerReducer from "../footer/store/reducer";
 
-export default (state = defaultState, action) => {
-    let newState = JSON.parse(JSON.stringify(state))
-    switch (action.type) {
-        case GET_NAME:
-            newState.name = action.data.name
-            newState.age = action.data.age
-            break;
-        default:
-            break;
-    }
-    return newState
-}
+export default combineReducers({
+    header: headerReducer,
+    footer: footerReducer
+})

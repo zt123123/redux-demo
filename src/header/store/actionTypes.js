@@ -1,0 +1,1 @@
+export const HEADER_GET_NAME = "change"

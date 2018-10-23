@@ -1,8 +1,8 @@
-import { GET_NAME } from "./actionTypes";
+import { HEADER_GET_NAME } from "./actionTypes";
 
 
 export const changeData = (data) => ({
-    type: GET_NAME,
+    type: HEADER_GET_NAME,
     data
 })
 
@@ -10,8 +10,8 @@ export const getAsyncData = () => {
     return (dispatch) => {
         setTimeout(() => {
         	dispatch(changeData({
-        		name:"lisi",
-        		age:2000
+        		name:"new header",
+        		age:"new 1111"
         	}))
         }, 2000)
     }

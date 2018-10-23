@@ -1,0 +1,1 @@
+export const FOOTER_GET_NAME = "change"
