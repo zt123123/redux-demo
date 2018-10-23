@@ -1,28 +1,46 @@
-import React, { Component } from 'react';
-import logo from './logo.svg';
+import React ,{Component} from 'react';
+import { connect } from "react-redux";
+import { changeData,getAsyncData } from "./store/actionCreater";
 import './App.css';
 
 class App extends Component {
-  render() {
+  componentDidMount(){
+    this.props.getAsyncData()
+  }
+
+  render(){
+    const { name, age, change } = this.props
+
     return (
       <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <p>
-            Edit <code>src/App.js</code> and save to reload.
-          </p>
-          <a
-            className="App-link"
-            href="https://reactjs.org"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Learn React
-          </a>
-        </header>
+        <h1>Hello {name}!!!</h1>
+        <h1>I am {age} years old</h1>
+        <button onClick={change}>changeData</button>
       </div>
     );
   }
 }
 
-export default App;
+
+const mapState = (state) => {
+  return {
+    name: state.name,
+    age: state.age,
+  }
+}
+
+const mapAction = (dispatch) => {
+  return {
+    change() {
+      dispatch(changeData({
+        name: "tian",
+        age: 1000
+      }))
+    },
+    getAsyncData(){
+      dispatch(getAsyncData())
+    }
+  }
+}
+
+export default connect(mapState, mapAction)(App);
