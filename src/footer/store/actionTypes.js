@@ -1,1 +1,1 @@
-export const FOOTER_GET_NAME = "change"
+export const FOOTER_GET_NAME = "footer/change"

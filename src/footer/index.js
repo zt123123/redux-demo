@@ -3,13 +3,16 @@ import { connect } from "react-redux";
 import { FooterActionCreater } from "./store";
 
 class Footer extends Component {
+    componentWillMount() {
+        this.props.getAsyncDataTo()
+    }
     render() {
         const { changeTo, sex, salary } = this.props
 
         return (
             <div className="App">
-                <h1>Hello {sex}!!!</h1>
-                <h1>I am {salary} years old</h1>
+                <h1>{sex}</h1>
+                <h1>{salary}</h1>
                 <button onClick={changeTo}>changeData</button>
             </div>
         );
@@ -19,8 +22,8 @@ class Footer extends Component {
 
 const mapState = (state) => {
     return {
-        salary: state.footer.salary,
-        sex: state.footer.sex,
+        salary: state.getIn(["footer", "sex"]),
+        sex: state.getIn(["footer", "salary"]),
     }
 }
 
@@ -28,12 +31,15 @@ const mapAction = (dispatch) => {
     return {
         changeTo() {
             dispatch(FooterActionCreater.changeDataTo({
-                sex: "footer+++++++++",
-                salary: "2222++++++++++++"
+                salary: "footer改变数据",
+                sex: "2222改变数据"
             }))
         },
         getAsyncDataTo() {
-            dispatch(FooterActionCreater.getAsyncDataTo())
+            dispatch(FooterActionCreater.getAsyncDataTo({
+                salary: "footer异步数据",
+                sex: "22222异步数据"
+            }))
         }
     }
 }

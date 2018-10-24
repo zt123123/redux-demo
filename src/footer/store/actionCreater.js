@@ -6,13 +6,10 @@ export const changeDataTo = (data) => ({
     data
 })
 
-export const getAsyncDataTo = () => {
+export const getAsyncDataTo = (data) => {
     return (dispatch) => {
         setTimeout(() => {
-        	dispatch(changeDataTo({
-        		salary:"new footer",
-        		sex:"new 22222"
-        	}))
+        	dispatch(changeDataTo(data))
         }, 2000)
     }
 }

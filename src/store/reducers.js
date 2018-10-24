@@ -1,4 +1,4 @@
-import { combineReducers } from "redux";
+import { combineReducers } from "redux-immutable";
 
 import headerReducer from "../header/store/reducer";
 import footerReducer from "../footer/store/reducer";

@@ -1,19 +1,19 @@
+import { fromJS } from "immutable";
 import { HEADER_GET_NAME } from "./actionTypes";
 
-let defaultState = {
+let defaultState = fromJS({
     name: "header",
     age: "1111"
-}
+})
 
 export default (state = defaultState, action) => {
-    let newState = JSON.parse(JSON.stringify(state))
     switch (action.type) {
         case HEADER_GET_NAME:
-            newState.name = action.data.name
-            newState.age = action.data.age
-            break;
+            return state
+                .set("name", action.data.name)
+                .set("age", action.data.age)
         default:
             break;
     }
-    return newState
+    return state
 }
