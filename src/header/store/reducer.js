@@ -18,7 +18,7 @@ export default (state = defaultState, action) => {
             
             //good
             return state.merge({
-                "name": ction.data.name,
+                "name": action.data.name,
                 "age": action.data.age,
                 "love": action.data.love
             })
