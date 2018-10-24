@@ -38,7 +38,7 @@ const mapAction = (dispatch) => {
         getAsyncDataTo() {
             dispatch(FooterActionCreater.getAsyncDataTo({
                 salary: "footer异步数据",
-                sex: "22222异步数据"
+                sex: "22222异步数据",
             }))
         }
     }
